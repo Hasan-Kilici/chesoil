@@ -1,0 +1,163 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./static/kawethra.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="./static/script.js"></script>
+        <link rel="stylesheet" href="./static/style.css"/>
+        <script src="https://flowbite.com/docs/flowbite.min.js?v=1.6.5a"></script>
+        <title>Anasayfa</title>
+    </head>
+    <!--  dark:bg-gray-800 dark:border-gray-700 -->
+    <body class="antialiased bg-gray-200 text-gray-900 font-sans p-6 dark:bg-gray-900">
+    <div id="layout-navbar">
+      <nav class="bg-transparent border-gray-200 absolute top-0 left-0 z-50 w-100">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="https://flowbite.com/" class="flex items-center">
+            <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Chesoil Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Chesoil</span>
+        </a>
+        <div class="flex items-center md:order-2">
+        {{ if .userstatus }}
+            <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <span class="sr-only">Open user menu</span>
+                <img class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+            </button>
+            <!-- Dropdown menu -->
+            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                <div class="px-4 py-3">
+                <span class="block text-sm text-gray-900 dark:text-white">{{ .username }}</span>
+                <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ .email }} </span>
+                </div>
+                <ul class="py-2" aria-labelledby="user-menu-button">
+                <li>
+                    <a href="/settings" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Ayarlar</a>
+                </li>
+                <li>
+                    <a href="/signout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Çıkış yap</a>
+                </li>
+                </ul>
+            </div>
+            {{ else }}
+                <a href="/#/login" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Giriş yap</a>
+                <a href="/register" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kayıt ol</a>    
+            {{ end }}
+            <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+            <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+        </nav>  
+    </div>
+        {{ if .error }}
+                <div class="bg-dark-900 text-center py-4 lg:px-4">
+                    <div class="p-2 bg-red-800 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                    <span class="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">Hata</span>
+                    <span class="font-semibold mr-2 text-left flex-auto">{{ .error }}</span>
+                    <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+                </div>
+            </div>
+        {{ end }}
+        <div id="home" style="display:none">
+        <section class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+                <a href="#" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
+                    <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Forum Özelliği eklendi !</span> 
+                    <svg aria-hidden="true" class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                </a>
+                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Learn, Save & Discuss</h1>
+                <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Learn about Animals and Plants and Discuss Biology with Humans with Chesoil!</p>
+            </div>
+            <div class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0"></div>
+        </section>
+
+            {{ if .infos }}
+                <div class="container mx-auto mt-[200px]">
+                    <div class="flex flex-wrap -mx-4">
+                    {{ range .infos}}
+                    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4 ">
+                        <a href="/info/{{ .ID }}" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                        <div class="relative pb-48 overflow-hidden dark:bg-gray-800 dark:border-gray-700">
+                        <img class="absolute inset-0 h-full w-full object-cover" src="{{ .Banner }}" alt="{{ .Name }}">
+                        </div>
+                        <div class="p-4 ">
+                        <h2 class="mt-2 mb-2  font-bold">{{ .Name }}</h2>
+                        <p class="text-sm">Chesoil Tarafından paylaşılmış bir bilgilendirmedir.<br>
+                        <b>{{ .Name }}</b> Hakkında bilgi sahibi olmak için lütfen tıklayınız</p>
+                            <div class="mt-3 flex items-center">
+                            <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Devamını gör
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                    </a>
+                    </div>
+                </div>
+            {{ else }}
+                
+            {{ end }}
+        </div>
+        <div id="main">
+
+        </div>
+    </body>
+    <script>
+    function submitForm() {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        alert("Please complete the recaptcha.");
+        return false;
+    } else {
+        document.getElementById('g-recaptcha-response').value = response;
+        return true;
+    }
+    }
+    </script>
+    
+    <script>
+        addRoute("","./components/home.kw","Anasayfa",()=>{
+            document.getElementById("home").style.display = "";
+        });
+        addRoute("/register","./components/register.kw","Kayıt ol",()=>{
+            document.getElementById("home").style.display = "none";
+        });
+        addRoute("/login","./components/login.kw","Giriş yap",()=>{
+            document.getElementById("home").style.display = "none";
+        });
+
+    </script>
+        {{ if eq .perm "Admin"}}
+            <script>
+            addRoute("/admin/dashboard","./components/admin.kw","Admin Panel", ()=>{
+                document.getElementById("home").style.display = "none";
+            })
+            </script>
+        {{ end }}
+        {{if .redirect }}
+            <script>
+                window.location.href = "{{ .redirect }}";
+            </script>
+        {{ end }}
+</html>

@@ -1,0 +1,52 @@
+<h2>Şifre değiştir</h2>
+<div class="w-full mb-8 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <form method="POST" action="/change/password">
+  <div class="mt-2">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Eski Şifre</label>
+    <input type="password" id="password" name="password" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+<div class="mt-2">
+    <label for="newPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yeni Şifre</label>
+    <input type="text" id="newPassword" name="newPassword" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+<button type="submit" class="mt-5 w-auto text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Şifre değiştir</button>
+    </form>
+</div>
+<h2>Kullanıcı adı değiştir</h2>
+<div class="w-full mb-8 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+<form method="POST" action="/change/username">
+<div class="mt-2">
+    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Yeni Kullanıcı adı</label>
+    <input type="text" id="username" name="username" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+</div>
+<button type="submit" class="mt-5 w-auto text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kullanıcı adı değiştir</button>
+</form> 
+</div>
+
+<button onclick="document.getElementById('hs-full-screen-modal-below-sm2').style.display = 'block'" class="mt-5 w-auto text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Hesabı Arşive al</button>  
+
+<button onclick="document.getElementById('hs-full-screen-modal-below-sm').style.display = 'block'" class="mt-5 w-auto text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Hesabı sil</button>  
+
+
+<div id="hs-full-screen-modal-below-sm" class="w-100 mb-8 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700" style="display:none;position:fixed;top:0;left:0;z-index:1000;height:100vh;flex-wrap:wrap;">
+  <h3 class="w-100">Hesabı Silmek istediğinize emin misiniz?</h3>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;">
+    <button type="cancel" onclick="document.getElementById('hs-full-screen-modal-below-sm').style.display = 'none'" style="" type="cancel" class="w-[45%] mt-5 w-auto text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+       Hayır Silmek istemiyorum
+    </button>
+  <form method="POST" class="w-[45%]" style="padding:0;margin:0;" action="/delete/account">
+  <button class="w-full mt-5 w-auto text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Hesabı sil</button>  
+  </form>
+</div>
+</div>
+<div id="hs-full-screen-modal-below-sm2" class="w-100 mb-8 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700" style="display:none;position:fixed;top:0;left:0;z-index:1000;height:100vh;flex-wrap:wrap;">
+  <h3 class="w-100">Hesabı Arşivlemek istediğinize emin misiniz?</h3>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;">
+    <button type="cancel" onclick="document.getElementById('hs-full-screen-modal-below-sm2').style.display = 'none'" style="" type="cancel" class="w-[45%] mt-5 w-auto text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+       Hayır Arşivlemek  istemiyorum
+    </button>
+  <form method="POST" class="w-[45%]" style="padding:0;margin:0;" action="/delete/account">
+  <button class="w-full mt-5 w-auto text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Hesabı Arşivle</button>  
+  </form>
+</div>
+</div>

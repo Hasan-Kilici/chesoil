@@ -1,0 +1,23 @@
+<h3>Admin Paneli</h3>
+<form method="POST" action="/upload" enctype="multipart/form-data">
+  <input type="hidden" name="Token" value="{{ .Token }}">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" required>
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" required></textarea>
+  <label for="property1">Property 1:</label>
+  <input type="text" id="property1" name="property1" required>
+  <label for="property2">Property 2:</label>
+  <input type="text" id="property2" name="property2" required>
+  <label for="property3">Property 3:</label>
+  <input type="text" id="property3" name="property3" required>
+  <label for="banner">Banner:</label>
+  <input type="file" id="banner" name="banner" accept="image/*" >
+  <label for="gallery">Gallery:</label>
+  <input type="file" id="gallery" name="gallery[]" accept="image/*" multiple>
+  <select id="types" name="types">
+    <option value="Bitki">Bitki</option>
+    <option value="Hayvan">Hayvan</option>
+  </select>
+  <button type="submit">Upload</button>
+</form>

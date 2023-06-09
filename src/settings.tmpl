@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../static/kawethra.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="../static/script.js"></script>
+        <link rel="stylesheet" href="./static/style.css"/>
+        <script src="https://flowbite.com/docs/flowbite.min.js?v=1.6.5a"></script>
+        <script src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@preline/preline@1.0.0/dist/hs-ui.bundle.min.js"></script>
+        <title>Anasayfa</title>
+    </head>
+    <!--  dark:bg-gray-800 dark:border-gray-700 -->
+    <body class="antialiased bg-gray-200 text-gray-900 font-sans p-6 dark:bg-gray-900">
+    <div id="layout-navbar">
+
+    </div>
+        {{ if .redirect }}
+            <script>
+                window.location.href = "{{ .redirect }}";
+            </script>
+        {{ end }}
+<button data-drawer-target="cta-button-sidebar" data-drawer-toggle="cta-button-sidebar" aria-controls="cta-button-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+   <span class="sr-only">Open sidebar</span>
+   <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+   </svg>
+</button>
+
+<aside id="cta-button-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+      <ul class="space-y-2 font-medium">
+         <li>
+            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+               <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+               <span class="ml-3">Kullanıcı ayarları</span>
+            </a>
+         </li>
+      </ul>
+      <div id="dropdown-cta" class="p-4 mt-6 rounded-lg bg-blue-50 dark:bg-blue-800" role="alert">
+         <div class="flex items-center mb-3">
+            <span class="bg-blue-100 text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">Ayarlar</span>
+            <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-blue-50 text-blue-900 rounded-lg focus:ring-2 focus:ring-blue-400 p-1 hover:bg-blue-200 inline-flex h-6 w-6 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800" data-dismiss-target="#dropdown-cta" aria-label="Close">
+                  <span class="sr-only">Close</span>
+                  <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+         </div>
+         <p class="mb-3 text-sm text-blue-800 dark:text-blue-400">
+            Burada Tema ayarları, Kullanıcı ayarları, Güvenlik vs. Mevcuttur.
+            istediğin ayara tıklayıp değişiklik yapabilirsin
+         </p>
+         <a class="text-sm text-blue-800 underline font-medium hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300" href="#">Anasayfaya dön</a>
+      </div>
+   </div>
+</aside>
+
+<div class="p-4 sm:ml-64" id="d">
+        {{ if .message}}
+            <div class="bg-dark-900 text-center py-4 lg:px-4">
+                    <div class="p-2 bg-green-800 items-center text-green-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                    <span class="flex rounded-full bg-green-500 uppercase px-2 py-1 text-xs font-bold mr-3">Mesaj</span>
+                    <span class="font-semibold mr-2 text-left flex-auto">{{ .message }}</span>
+                    <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+                </div>
+            </div>
+        {{ end }}
+        {{ if .error }}
+            <div class="bg-dark-900 w-100 text-center py-4 lg:px-4">
+                    <div class="p-2 w-100 bg-red-800 items-center text-red-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                    <span class="flex rounded-full bg-red-500 uppercase px-2 py-1 text-xs font-bold mr-3">Hata</span>
+                    <span class="font-semibold mr-2 text-left flex-auto">{{ .error }}</span>
+                    <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+                </div>
+            </div>
+        {{ end }}
+   <div class="p-4 dark:text-gray-100" id="main">
+      
+   </div>
+</div>
+<script>
+addRoute("", "../components/defultSettings.kw","Ayarlar", ()=>{})
+fetch("../components/defultSettings.kw").then(async(data)=>{
+    let a = await data.text();
+    document.getElementById("main").innerHTML = a;
+})
+</script>
+</body>
